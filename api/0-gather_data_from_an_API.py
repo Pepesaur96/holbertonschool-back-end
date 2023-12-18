@@ -8,7 +8,8 @@ if len(sys.argv) > 1 and sys.argv[1].isdigit():
     user = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)).json()
     todos = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)).json()
+        'https://jsonplaceholder.typicode.com/users/{}/todos'.
+        format(user_id)).json()
 
     done_tasks = [task for task in todos if task.get('completed') is True]
     total_tasks = len(todos)
