@@ -1,11 +1,5 @@
 #!/usr/bin/python3
-"""
-This module uses Python to make requests to a REST API.
-fix
-It fetches data about a specific employee's tasks
-and prints a summary of the tasks completed and the
-titles of the completed tasks.
-"""
+"""Script to return info about todo list progres"""
 import requests
 import sys
 
