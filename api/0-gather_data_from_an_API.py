@@ -1,5 +1,12 @@
 #!/usr/bin/python3
-"""Gather data from an API"""
+"""
+This script returns information about a given employee's TODO list progress.
+Arguments:
+    id - employee ID
+Returns:
+    The employee's name, the total number of tasks, and the number of tasks
+    completed out of the total.
+"""
 import requests
 import sys
 
