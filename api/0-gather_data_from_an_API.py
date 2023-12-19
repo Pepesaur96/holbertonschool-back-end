@@ -3,21 +3,21 @@
 import requests
 import sys
 
-if len(sys.argv) > 1 and sys.argv[1].isdigit():
-    user_id = sys.argv[1]
-    user = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)).json()
-    todos = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.
-        format(user_id)).json()
 
-    done_tasks = [task for task in todos if task.get('completed') is True]
-    total_tasks = len(todos)
+id = sys.argv[1]
+user = requests.get('https://jsonplaceholder.typicode.com/users/' + id)
+data = user.json()
+name = data['name']
+todos = requests.get('https://jsonplaceholder.typicode.com/todos?userId=' + id)
+todos_data = todos.json()
+total = str(len(todos_data))
+completed = str(sum([1 for task in todos_data if task['completed'] is True]))
 
-    print('Employee {} is done with tasks({}/{}):'.format(
-        user['name'], len(done_tasks), total_tasks))
+print('Employee {} is done with tasks({}/{}):'.format(name, completed, total))
 
-    for task in done_tasks:
+for task in todos_data:
+    if task['completed'] is True:
         print('\t {}'.format(task['title']))
-else:
-    print("Usage: {} <employee_id>".format(sys.argv[0]))
+
+if __name__ == '__main__':
+    pass
