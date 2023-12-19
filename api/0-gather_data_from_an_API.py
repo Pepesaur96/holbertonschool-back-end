@@ -5,7 +5,7 @@ Arguments:
     id - employee ID
 Returns:
     The employee's name, the total number of tasks, and the number of tasks
-    completed out of the total.
+    completed out of the total. Then, the titles of all completed tasks.
 """
 import requests
 import sys
