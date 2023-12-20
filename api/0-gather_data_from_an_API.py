@@ -27,13 +27,16 @@ total = str(len(todos_data))
 # Get number of completed todos
 completed = str(sum([1 for task in todos_data if task['completed'] is True]))
 
-# Print Employee 'name' is done with tasks('completed'/'total'):
-print('Employee {} is done with tasks({}/{}):'.format(name, completed, total))
 
-# Print title of completed tasks
-for task in todos_data:
-    if task['completed'] is True:
-        print('\t {}'.format(task['title']))
+def todo_list():
+    # Print Employee 'name' is done with tasks('completed'/'total'):
+    print('Employee {} is done with tasks({}/{}):'.format(name, completed, total))
+
+    # Print title of completed tasks
+    for task in todos_data:
+        if task['completed'] is True:
+            print('\t {}'.format(task['title']))
+
 
 if __name__ == '__main__':
     pass
